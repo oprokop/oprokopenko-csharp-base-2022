@@ -7,634 +7,617 @@ namespace SimpleApp;
         {
             while (true)
             {
-            Console.WriteLine("Enter number type");
-
-            
-            switch (Console.ReadLine())
-            {
-                case "int":
-                    
-                    bool x;
-                    bool y;
-                    Console.WriteLine("int is chosen");
-                    Console.WriteLine("Enter first number");
-                    
-                    x = int.TryParse(Console.ReadLine(), out int fint);
-                    if (x == true)
-                        {
-                        if (fint != 0)
-                            {
-                            Console.WriteLine("Enter second number");
-                            }
-                        else
-                            {
-                            Console.WriteLine("Value must be not null");
-                            break;
-                            }
-                        }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
+                Console.WriteLine("Enter number type");
+                switch (Console.ReadLine())
+                {
+                    case "int": Intcase();
                         break;
-                    }
-                    y = int.TryParse(Console.ReadLine(), out int sint);
-                    if (y == true)
-                    {
-                        if (sint != 0)
+                    case "float":
+                        Console.WriteLine("float is chosen");
+                        Console.WriteLine("Enter first number");
+                        if (float.TryParse(Console.ReadLine(), out float ffloat))
                         {
-                            if (fint>sint)
+                            if (ffloat != 0)
                             {
-                                Console.WriteLine("First number is bigger");
-                            }
-                            else if (fint < sint)
-                            {
-                                Console.WriteLine("Second number is bigger");
-                            }
-                            else { Console.WriteLine("Numbers are equal"); }
-                            
-                        }
-                        else
-                        {
-                            Console.WriteLine("Value must be not null");
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
-                        break;
-                    }
-                    break;
-
-
-
-                case "float":
-
-                    Console.WriteLine("float is chosen");
-                    Console.WriteLine("Enter first number");
-
-                    x = float.TryParse(Console.ReadLine(), out float ffloat);
-                    if (x == true)
-                    {
-                        if (ffloat != 0)
-                        {
-                            Console.WriteLine("Enter second number");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Value must be not null");
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
-                        break;
-                    }
-                   
-                    y = float.TryParse(Console.ReadLine(), out float sfloat);
-                    if (y == true)
-                    {
-                        
-                        if (sfloat != 0)
-                        {
-                            if(Math.Abs(ffloat-sfloat) < 0.0001)
-                            { 
-                                if (ffloat > sfloat)
-                                {
-                                    Console.WriteLine("First number is bigger");
-                                }
-                                else if (ffloat < sfloat)
-                                {
-                                    Console.WriteLine("Second number is bigger");
-                                }
-                                else { Console.WriteLine("Numbers are equal"); }
+                                Console.WriteLine("Enter second number");
                             }
                             else
                             {
-                                if (Math.Round(ffloat, 4) > Math.Round(sfloat, 4))
-                                {
-                                    Console.WriteLine("First number is bigger");
-                                }
-                                else if (Math.Round(ffloat, 4) < Math.Round(sfloat, 4))
-                                {
-                                    Console.WriteLine("Second number is bigger");
-                                }
-                                else { Console.WriteLine("Numbers are equal"); }
+                                Console.WriteLine("Value must be not null");
+                                break;
                             }
                         }
                         else
-
                         {
-                            Console.WriteLine("Value must be not null");
+                            Console.WriteLine("Invalid data");
                             break;
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
+                        if (float.TryParse(Console.ReadLine(), out float sfloat))
+                        {
+                            if (sfloat != 0)
+                            {
+                                if(Math.Abs(ffloat - sfloat) < 0.0001)
+                                { 
+                                    if (ffloat > sfloat)
+                                    {
+                                        Console.WriteLine("First number is bigger");
+                                    }
+                                    else if (ffloat < sfloat)
+                                    {
+                                        Console.WriteLine("Second number is bigger");
+                                    }
+                                    else 
+                                    { 
+                                        Console.WriteLine("Numbers are equal"); 
+                                    }
+                                }
+                                else
+                                {
+                                    if (Math.Round(ffloat, 4) > Math.Round(sfloat, 4))
+                                    {
+                                        Console.WriteLine("First number is bigger");
+                                    }
+                                    else if (Math.Round(ffloat, 4) < Math.Round(sfloat, 4))
+                                    {
+                                        Console.WriteLine("Second number is bigger");
+                                    }
+                                    else 
+                                    { 
+                                        Console.WriteLine("Numbers are equal"); 
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Value must be not null");
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid data");
+                            break;
+                        }
                         break;
-                    }
-                    break;
-
-
                     case "decimal":
-
-                    Console.WriteLine("decimal is chosen");
-                    Console.WriteLine("Enter first number");
-
-                    x = decimal.TryParse(Console.ReadLine(), out decimal fdec);
-                    if (x == true)
-                    {
-                        if (fdec != 0)
+                        Console.WriteLine("decimal is chosen");
+                        Console.WriteLine("Enter first number");
+                        if (decimal.TryParse(Console.ReadLine(), out decimal fdec))
                         {
-                            Console.WriteLine("Enter second number");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Value must be not null");
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
-                        break;
-                    }
-
-                    y = decimal.TryParse(Console.ReadLine(), out decimal sdec);
-                    if (y == true)
-                    {
-
-                        if (sdec != 0)
-                        {
-                            if (Math.Abs(fdec - sdec) < 0.0001m)
+                            if (fdec != 0)
                             {
-                                if (fdec > sdec)
-                                {
-                                    Console.WriteLine("First number is bigger");
-                                }
-                                else if (fdec < sdec)
-                                {
-                                    Console.WriteLine("Second number is bigger");
-                                }
-                                else { Console.WriteLine("Numbers are equal"); }
+                                Console.WriteLine("Enter second number");
                             }
                             else
                             {
-                                if (Math.Round(fdec, 4) > Math.Round(sdec, 4))
-                                {
-                                    Console.WriteLine("First number is bigger");
-                                }
-                                else if (Math.Round(fdec, 4) < Math.Round(sdec, 4))
-                                {
-                                    Console.WriteLine("Second number is bigger");
-                                }
-                                else { Console.WriteLine("Numbers are equal"); }
+                                Console.WriteLine("Value must be not null");
+                                break;
                             }
                         }
                         else
-
                         {
-                            Console.WriteLine("Value must be not null");
+                            Console.WriteLine("Invalid data");
                             break;
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
-                        break;
-                    }
-                    break;
-
-                case "double":
-                    Console.WriteLine("double is chosen");
-                    Console.WriteLine("Enter first number");
-
-                    x = double.TryParse(Console.ReadLine(), out double fdouble);
-                    if (x == true)
-                    {
-                        if (fdouble != 0)
+                        if (decimal.TryParse(Console.ReadLine(), out decimal sdec))
                         {
-                            Console.WriteLine("Enter second number");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Value must be not null");
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
-                        break;
-                    }
-
-                    y = double.TryParse(Console.ReadLine(), out double sdouble);
-                    if (y == true)
-                    {
-
-                        if (sdouble != 0)
-                        {
-                            if (Math.Abs(fdouble - sdouble) < 0.0001)
+                            if (sdec != 0)
                             {
-                                if (fdouble > sdouble)
+                                if (Math.Abs(fdec - sdec) < 0.0001m)
                                 {
-                                    Console.WriteLine("First number is bigger");
+                                    if (fdec > sdec)
+                                    {
+                                        Console.WriteLine("First number is bigger");
+                                    }
+                                    else if (fdec < sdec)
+                                    {
+                                        Console.WriteLine("Second number is bigger");
+                                    }
+                                    else 
+                                    { 
+                                        Console.WriteLine("Numbers are equal"); 
+                                    }
                                 }
-                                else if (fdouble < sdouble)
+                                else
                                 {
-                                    Console.WriteLine("Second number is bigger");
+                                    if (Math.Round(fdec, 4) > Math.Round(sdec, 4))
+                                    {
+                                        Console.WriteLine("First number is bigger");
+                                    }
+                                    else if (Math.Round(fdec, 4) < Math.Round(sdec, 4))
+                                    {
+                                        Console.WriteLine("Second number is bigger");
+                                    }
+                                    else 
+                                    { 
+                                        Console.WriteLine("Numbers are equal"); 
+                                    }
                                 }
-                                else { Console.WriteLine("Numbers are equal"); }
                             }
                             else
                             {
-                                if (Math.Round(fdouble, 4) > Math.Round(sdouble, 4))
+                                Console.WriteLine("Value must be not null");
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid data");
+                            break;
+                        }
+                        break;
+
+                    case "double":
+                        Console.WriteLine("double is chosen");
+                        Console.WriteLine("Enter first number");
+                        if (double.TryParse(Console.ReadLine(), out double fdouble))
+                        {
+                            if (fdouble != 0)
+                            {
+                                Console.WriteLine("Enter second number");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Value must be not null");
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid data");
+                            break;
+                        }
+                        if (double.TryParse(Console.ReadLine(), out double sdouble))
+                        {
+                            if (sdouble != 0)
+                            {
+                                if (Math.Abs(fdouble - sdouble) < 0.0001)
+                                {
+                                    if (fdouble > sdouble)
+                                    {
+                                        Console.WriteLine("First number is bigger");
+                                    }
+                                    else if (fdouble < sdouble)
+                                    {
+                                        Console.WriteLine("Second number is bigger");
+                                    }
+                                    else 
+                                    { 
+                                        Console.WriteLine("Numbers are equal"); 
+                                    }
+                                }
+                                else
+                                {
+                                    if (Math.Round(fdouble, 4) > Math.Round(sdouble, 4))
+                                    {
+                                        Console.WriteLine("First number is bigger");
+                                    }
+                                    else if (Math.Round(fdouble, 4) < Math.Round(sdouble, 4))
+                                    {
+                                        Console.WriteLine("Second number is bigger");
+                                    }
+                                    else 
+                                    { 
+                                        Console.WriteLine("Numbers are equal"); 
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Value must be not null");
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid data");
+                            break;
+                        }
+                        break;
+                    case "sbyte":
+                        Console.WriteLine("sbyte is chosen");
+                        Console.WriteLine("Enter first number");
+                        if (sbyte.TryParse(Console.ReadLine(), out sbyte fsbyte))
+                        {
+                            if (fsbyte != 0)
+                            {
+                                Console.WriteLine("Enter second number");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Value must be not null");
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid data");
+                            break;
+                        }
+                        if (sbyte.TryParse(Console.ReadLine(), out sbyte ssbyte))
+                        {
+                            if (ssbyte != 0)
+                            {
+                                if (fsbyte > ssbyte)
                                 {
                                     Console.WriteLine("First number is bigger");
                                 }
-                                else if (Math.Round(fdouble, 4) < Math.Round(sdouble, 4))
+                                else if (fsbyte < ssbyte)
                                 {
                                     Console.WriteLine("Second number is bigger");
                                 }
-                                else { Console.WriteLine("Numbers are equal"); }
+                                else 
+                                { 
+                                    Console.WriteLine("Numbers are equal"); 
+                                }
                             }
-                        }
-                        else
-
-                        {
-                            Console.WriteLine("Value must be not null");
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
-                        break;
-                    }
-                    break;
-                case "sbyte":
-                    Console.WriteLine("sbyte is chosen");
-                    Console.WriteLine("Enter first number");
-
-                    x = sbyte.TryParse(Console.ReadLine(), out sbyte fsbyte);
-                    if (x == true)
-                    {
-                        if (fsbyte != 0)
-                        {
-                            Console.WriteLine("Enter second number");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Value must be not null");
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
-                        break;
-                    }
-                    y = sbyte.TryParse(Console.ReadLine(), out sbyte ssbyte);
-                    if (y == true)
-                    {
-                        if (ssbyte != 0)
-                        {
-                            if (fsbyte > ssbyte)
+                            else
                             {
-                                Console.WriteLine("First number is bigger");
+                                Console.WriteLine("Value must be not null");
+                                break;
                             }
-                            else if (fsbyte < ssbyte)
-                            {
-                                Console.WriteLine("Second number is bigger");
-                            }
-                            else { Console.WriteLine("Numbers are equal"); }
-
                         }
                         else
                         {
-                            Console.WriteLine("Value must be not null");
+                            Console.WriteLine("Invalid data");
                             break;
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
                         break;
-                    }
-                    break;
-                case "short":
-                    Console.WriteLine("short is chosen");
-                    Console.WriteLine("Enter first number");
-
-                    x = short.TryParse(Console.ReadLine(), out short fshort);
-                    if (x == true)
-                    {
-                        if (fshort != 0)
+                    case "short":
+                        Console.WriteLine("short is chosen");
+                        Console.WriteLine("Enter first number");
+                        if (short.TryParse(Console.ReadLine(), out short fshort))
                         {
-                            Console.WriteLine("Enter second number");
+                            if (fshort != 0)
+                            {
+                                Console.WriteLine("Enter second number");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Value must be not null");
+                                break;
+                            }
                         }
                         else
                         {
-                            Console.WriteLine("Value must be not null");
+                            Console.WriteLine("Invalid data");
                             break;
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
-                        break;
-                    }
-                    y = int.TryParse(Console.ReadLine(), out int sshort);
-                    if (y == true)
-                    {
-                        if (sshort != 0)
+                        if (int.TryParse(Console.ReadLine(), out int sshort))
                         {
-                            if (fshort > sshort)
+                            if (sshort != 0)
                             {
-                                Console.WriteLine("First number is bigger");
-                            }
-                            else if (fshort < sshort)
-                            {
-                                Console.WriteLine("Second number is bigger");
-                            }
-                            else { Console.WriteLine("Numbers are equal"); }
+                                if (fshort > sshort)
+                                {
+                                    Console.WriteLine("First number is bigger");
+                                }
+                                else if (fshort < sshort)
+                                {
+                                    Console.WriteLine("Second number is bigger");
+                                }
+                                else 
+                                { 
+                                    Console.WriteLine("Numbers are equal"); 
+                                }
 
+                            }
+                            else
+                            {
+                                Console.WriteLine("Value must be not null");
+                                break;
+                            }
                         }
                         else
                         {
-                            Console.WriteLine("Value must be not null");
+                            Console.WriteLine("Invalid data");
                             break;
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
                         break;
-                    }
-                    break;
-                case "long":
-                    Console.WriteLine("long is chosen");
-                    Console.WriteLine("Enter first number");
-
-                    x = long.TryParse(Console.ReadLine(), out long flong);
-                    if (x == true)
-                    {
-                        if (flong != 0)
+                    case "long":
+                        Console.WriteLine("long is chosen");
+                        Console.WriteLine("Enter first number");
+                        if (long.TryParse(Console.ReadLine(), out long flong))
                         {
-                            Console.WriteLine("Enter second number");
+                            if (flong != 0)
+                            {
+                                Console.WriteLine("Enter second number");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Value must be not null");
+                                break;
+                            }
                         }
                         else
                         {
-                            Console.WriteLine("Value must be not null");
+                            Console.WriteLine("Invalid data");
                             break;
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
-                        break;
-                    }
-                    y = long.TryParse(Console.ReadLine(), out long slong);
-                    if (y == true)
-                    {
-                        if (slong != 0)
+                        if (long.TryParse(Console.ReadLine(), out long slong))
                         {
-                            if (flong > slong)
+                            if (slong != 0)
                             {
-                                Console.WriteLine("First number is bigger");
+                                if (flong > slong)
+                                {
+                                    Console.WriteLine("First number is bigger");
+                                }
+                                else if (flong < slong)
+                                {
+                                    Console.WriteLine("Second number is bigger");
+                                }
+                                else 
+                                { 
+                                    Console.WriteLine("Numbers are equal"); 
+                                }
                             }
-                            else if (flong < slong)
+                            else
                             {
-                                Console.WriteLine("Second number is bigger");
+                                Console.WriteLine("Value must be not null");
+                                break;
                             }
-                            else { Console.WriteLine("Numbers are equal"); }
-
                         }
                         else
                         {
-                            Console.WriteLine("Value must be not null");
+                            Console.WriteLine("Invalid data");
                             break;
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
                         break;
-                    }
-                    break;
-                case "byte":
-                    Console.WriteLine("byte is chosen");
-                    Console.WriteLine("Enter first number");
-
-                    x = byte.TryParse(Console.ReadLine(), out byte fbyte);
-                    if (x == true)
-                    {
-                        if (fbyte != 0)
+                    case "byte":
+                        Console.WriteLine("byte is chosen");
+                        Console.WriteLine("Enter first number");
+                        if (byte.TryParse(Console.ReadLine(), out byte fbyte))
                         {
-                            Console.WriteLine("Enter second number");
+                            if (fbyte != 0)
+                            {
+                                Console.WriteLine("Enter second number");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Value must be not null");
+                                break;
+                            }
                         }
                         else
                         {
-                            Console.WriteLine("Value must be not null");
+                            Console.WriteLine("Invalid data");
                             break;
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
-                        break;
-                    }
-                    y = byte.TryParse(Console.ReadLine(), out byte secbyte);
-                    if (y == true)
-                    {
-                        if (secbyte != 0)
+                        if (byte.TryParse(Console.ReadLine(), out byte secbyte))
                         {
-                            if (fbyte > secbyte)
+                            if (secbyte != 0)
                             {
-                                Console.WriteLine("First number is bigger");
+                                if (fbyte > secbyte)
+                                {
+                                    Console.WriteLine("First number is bigger");
+                                }
+                                else if (fbyte < secbyte)
+                                {
+                                    Console.WriteLine("Second number is bigger");
+                                }
+                                else 
+                                { 
+                                    Console.WriteLine("Numbers are equal"); 
+                                }
                             }
-                            else if (fbyte < secbyte)
+                            else
                             {
-                                Console.WriteLine("Second number is bigger");
+                                Console.WriteLine("Value must be not null");
+                                break;
                             }
-                            else { Console.WriteLine("Numbers are equal"); }
-
                         }
                         else
                         {
-                            Console.WriteLine("Value must be not null");
+                            Console.WriteLine("Invalid data");
                             break;
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
                         break;
-                    }
-                    break;
-                case "ushort":
-                    Console.WriteLine("ushort is chosen");
-                    Console.WriteLine("Enter first number");
-
-                    x = ushort.TryParse(Console.ReadLine(), out ushort fushort);
-                    if (x == true)
-                    {
-                        if (fushort != 0)
+                    case "ushort":
+                        Console.WriteLine("ushort is chosen");
+                        Console.WriteLine("Enter first number");
+                        if (ushort.TryParse(Console.ReadLine(), out ushort fushort))
                         {
-                            Console.WriteLine("Enter second number");
+                            if (fushort != 0)
+                            {
+                                Console.WriteLine("Enter second number");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Value must be not null");
+                                break;
+                            }
                         }
                         else
                         {
-                            Console.WriteLine("Value must be not null");
+                            Console.WriteLine("Invalid data");
                             break;
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
-                        break;
-                    }
-                    y = ushort.TryParse(Console.ReadLine(), out ushort sushort);
-                    if (y == true)
-                    {
-                        if (sushort != 0)
+                        if (ushort.TryParse(Console.ReadLine(), out ushort sushort))
                         {
-                            if (fushort > sushort)
+                            if (sushort != 0)
                             {
-                                Console.WriteLine("First number is bigger");
+                                if (fushort > sushort)
+                                {
+                                    Console.WriteLine("First number is bigger");
+                                }
+                                else if (fushort < sushort)
+                                {
+                                    Console.WriteLine("Second number is bigger");
+                                }
+                                else 
+                                { 
+                                    Console.WriteLine("Numbers are equal"); 
+                                }
                             }
-                            else if (fushort < sushort)
+                            else
                             {
-                                Console.WriteLine("Second number is bigger");
+                                Console.WriteLine("Value must be not null");
+                                break;
                             }
-                            else { Console.WriteLine("Numbers are equal"); }
-
                         }
                         else
                         {
-                            Console.WriteLine("Value must be not null");
+                            Console.WriteLine("Invalid data");
                             break;
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
                         break;
-                    }
-                    break;
-                case "uint":
-                    Console.WriteLine("uint is chosen");
-                    Console.WriteLine("Enter first number");
-
-                    x = uint.TryParse(Console.ReadLine(), out uint fuint);
-                    if (x == true)
-                    {
-                        if (fuint != 0)
+                    case "uint":
+                        Console.WriteLine("uint is chosen");
+                        Console.WriteLine("Enter first number");
+                        if (uint.TryParse(Console.ReadLine(), out uint fuint))
                         {
-                            Console.WriteLine("Enter second number");
+                            if (fuint != 0)
+                            {
+                                Console.WriteLine("Enter second number");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Value must be not null");
+                                break;
+                            }
                         }
                         else
                         {
-                            Console.WriteLine("Value must be not null");
+                            Console.WriteLine("Invalid data");
                             break;
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
-                        break;
-                    }
-                    y = uint.TryParse(Console.ReadLine(), out uint suint);
-                    if (y == true)
-                    {
-                        if (suint != 0)
+                        if (uint.TryParse(Console.ReadLine(), out uint suint))
                         {
-                            if (fuint > suint)
+                            if (suint != 0)
                             {
-                                Console.WriteLine("First number is bigger");
+                                if (fuint > suint)
+                                {
+                                    Console.WriteLine("First number is bigger");
+                                }
+                                else if (fuint < suint)
+                                {
+                                    Console.WriteLine("Second number is bigger");
+                                }
+                                else 
+                                { 
+                                    Console.WriteLine("Numbers are equal"); 
+                                }
                             }
-                            else if (fuint < suint)
+                            else
                             {
-                                Console.WriteLine("Second number is bigger");
+                                Console.WriteLine("Value must be not null");
+                                break;
                             }
-                            else { Console.WriteLine("Numbers are equal"); }
-
                         }
                         else
                         {
-                            Console.WriteLine("Value must be not null");
+                            Console.WriteLine("Invalid data");
                             break;
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
                         break;
-                    }
-                    break;
-                case "ulong":
-                    Console.WriteLine("ulong is chosen");
-                    Console.WriteLine("Enter first number");
-
-                    x = ulong.TryParse(Console.ReadLine(), out ulong fulong);
-                    if (x == true)
-                    {
-                        if (fulong != 0)
+                    case "ulong":
+                        Console.WriteLine("ulong is chosen");
+                        Console.WriteLine("Enter first number");
+                        if (ulong.TryParse(Console.ReadLine(), out ulong fulong))
                         {
-                            Console.WriteLine("Enter second number");
+                            if (fulong != 0)
+                            {
+                                Console.WriteLine("Enter second number");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Value must be not null");
+                                break;
+                            }
                         }
                         else
                         {
-                            Console.WriteLine("Value must be not null");
+                            Console.WriteLine("Invalid data");
                             break;
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
-                        break;
-                    }
-                    y = ulong.TryParse(Console.ReadLine(), out ulong sulong);
-                    if (y == true)
-                    {
-                        if (sulong != 0)
+                        if (ulong.TryParse(Console.ReadLine(), out ulong sulong))
                         {
-                            if (fulong > sulong)
+                            if (sulong != 0)
                             {
-                                Console.WriteLine("First number is bigger");
+                                if (fulong > sulong)
+                                {
+                                    Console.WriteLine("First number is bigger");
+                                }
+                                else if (fulong < sulong)
+                                {
+                                    Console.WriteLine("Second number is bigger");
+                                }
+                                else 
+                                { 
+                                    Console.WriteLine("Numbers are equal"); 
+                                }
                             }
-                            else if (fulong < sulong)
+                            else
                             {
-                                Console.WriteLine("Second number is bigger");
+                                Console.WriteLine("Value must be not null");
+                                break;
                             }
-                            else { Console.WriteLine("Numbers are equal"); }
-
                         }
                         else
                         {
-                            Console.WriteLine("Value must be not null");
+                            Console.WriteLine("Invalid data");
                             break;
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid data");
                         break;
-                    }
-                    break;
-                case "exit":
-                    Environment.Exit(0);
-                    break;
-                default:
-                    Console.WriteLine("Incorrect type");
-                    break;
+                    case "exit":
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Incorrect type");
+                        break;
+                }
             }
         }
-                                    
-            
+        static void Intcase()
+        {
+            Markint:
+            Console.WriteLine("int is chosen");
+            Console.WriteLine("Enter first number");
+            if (int.TryParse(Console.ReadLine(), out int fint))
+            {
+                if (fint != 0)
+                {
+                    Console.WriteLine("Enter second number");
+                }
+                else
+                {
+                    Console.WriteLine("Value must be not null");
+                    goto Markint;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid data");
+                goto Markint;
+            }
+            if (int.TryParse(Console.ReadLine(), out int sint))
+            {
+                if (sint != 0)
+                {
+                    if (fint > sint)
+                    {
+                        Console.WriteLine("First number is bigger");
+                    }
+                    else if (fint < sint)
+                    {
+                        Console.WriteLine("Second number is bigger");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Numbers are equal");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Value must be not null");
+                    goto Markint;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid data");
+                goto Markint;
+            }
+        
         }
-
         
     }
