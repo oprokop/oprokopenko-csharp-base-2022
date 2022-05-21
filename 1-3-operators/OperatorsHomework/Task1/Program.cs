@@ -569,55 +569,59 @@ namespace SimpleApp;
         }
         static void Intcase()
         {
-            Markint:
-            Console.WriteLine("int is chosen");
-            Console.WriteLine("Enter first number");
-            if (int.TryParse(Console.ReadLine(), out int fint))
+            while (true)
             {
-                if (fint != 0)
+                Console.WriteLine("int is chosen");
+                Console.WriteLine("Enter first number");
+                if (int.TryParse(Console.ReadLine(), out int fint))
                 {
-                    Console.WriteLine("Enter second number");
-                }
-                else
-                {
-                    Console.WriteLine("Value must be not null");
-                    goto Markint;
-                }
-            }
-            else
-            {
-                Console.WriteLine("Invalid data");
-                goto Markint;
-            }
-            if (int.TryParse(Console.ReadLine(), out int sint))
-            {
-                if (sint != 0)
-                {
-                    if (fint > sint)
+                    if (fint != 0)
                     {
-                        Console.WriteLine("First number is bigger");
-                    }
-                    else if (fint < sint)
-                    {
-                        Console.WriteLine("Second number is bigger");
+                        Console.WriteLine("Enter second number");
                     }
                     else
                     {
-                        Console.WriteLine("Numbers are equal");
+                        Console.WriteLine("Value must be not null");
+                        break;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Value must be not null");
-                    goto Markint;
+                    Console.WriteLine("Invalid data");
+                    break;
+                }
+                if (int.TryParse(Console.ReadLine(), out int sint))
+                {
+                    if (sint != 0)
+                    {
+                        if (fint > sint)
+                        {
+                            Console.WriteLine("First number is bigger");
+                            return;
+                        }
+                        else if (fint < sint)
+                        {
+                            Console.WriteLine("Second number is bigger");
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Numbers are equal");
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Value must be not null");
+                        break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid data");
+                    break;
                 }
             }
-            else
-            {
-                Console.WriteLine("Invalid data");
-                goto Markint;
-            }
-        
         }
         
     }
