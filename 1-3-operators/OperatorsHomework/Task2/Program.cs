@@ -82,6 +82,7 @@ internal class Program
                             Lowest(masstest);
                             break;
                         case "7":
+                            Rev(masstest);
                             break;
                         case "8":
                             break;
@@ -132,7 +133,7 @@ internal class Program
     {
         for (int n = 0; n < masstest.Length; n++)
         {
-            Console.Write(masstest[n]);
+            Console.Write(masstest[n] + " ");
         }
         Console.WriteLine("\n");
     }
@@ -181,6 +182,16 @@ internal class Program
     {
         int low = masstest.Min<int>();
         Console.WriteLine($"The massive lowest element is " + low);
+    }
+    public static void Rev(int[] masstest)
+    {
+        int [] reverse = new int[1];
+        reverse = masstest;
+        Array.Reverse(reverse);
+        Console.WriteLine("Reversed massive:");
+        foreach (var i in reverse)
+            Console.Write(i + " " );
+        Console.WriteLine("\n");
     }
 }
 
