@@ -13,6 +13,9 @@ internal class Program
             Console.WriteLine(" 3. Bubble sort \n 4. Sum of all elements \n 5. Multiplexing of all elements");
             Console.WriteLine(" 6. The biggest and the lowest elements \n 7. Reverse array \n 8. Add element by index");
             Console.WriteLine(" 9. Remove elements by index \n Or just type <exit>");
+            while (true)
+            {
+
             
             if (int.TryParse(Console.ReadLine(), out int point))
             {
@@ -35,14 +38,14 @@ internal class Program
                         break;
                     }
                 }
-                
+                }
                 while (true)
                 {
                     Console.WriteLine("Now choose the array action (2-9)");
                     switch (Console.ReadLine())
                     {
                         case "1":
-                            break;
+                            return;
                         //    Console.WriteLine("Enter count of array elements");
                         //    if (int.TryParse(Console.ReadLine(), out int length) && length > 0)
                         //    {
@@ -69,10 +72,14 @@ internal class Program
                             Console.WriteLine("\n");
                             break;
                         case "4":
+                            Massum(masstest);
                             break;
                         case "5":
+                            Masmpx(masstest);
                             break;
                         case "6":
+                            Biggest(masstest);
+                            Lowest(masstest);
                             break;
                         case "7":
                             break;
@@ -146,6 +153,34 @@ internal class Program
             }
         }
         return masstest;
+    }
+    public static void Massum(int[] masstest)
+    {
+        var sum = 0;
+        for (var i = 0; i < masstest.Length; i++)
+        {
+            sum += masstest[i];
+        }
+        Console.WriteLine($"Sum of massive elements = " + sum);
+    }
+    public static void Masmpx(int[] masstest)
+    {
+        var mpx = 1;
+        for (var i = 0; i < masstest.Length; i++)
+        {
+            mpx *= masstest[i];
+        }
+        Console.WriteLine($"Product of massive elements = " + mpx);
+    }
+    public static void Biggest(int[] masstest)
+    {
+        int big = masstest.Max<int>();
+        Console.WriteLine($"The massive biggest element is " + big);
+    }
+    public static void Lowest(int[] masstest)
+    {
+        int low = masstest.Min<int>();
+        Console.WriteLine($"The massive lowest element is " + low);
     }
 }
 
