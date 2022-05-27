@@ -11,7 +11,7 @@ internal class Program
             if (int.TryParse(Console.ReadLine(), out int number))
             {
                 Console.WriteLine("Choose numeral system: bin, hex or oct");
-                switch(Console.ReadLine())
+                switch (Console.ReadLine())
                 {
                     case "bin":
                     case "ишт":
@@ -19,10 +19,14 @@ internal class Program
                         Converters.ToBinary(number);
                         break;
                     case "hex":
-                        //Сonverters.ToHex(number);
+                    case "руч":
+                    case "16":
+                        Converters.ToHex(number);
                         break;
                     case "oct":
-                        //converters.ToOct();
+                    case "щсе":
+                    case "8":
+                        Converters.ToOct(number);
                         break;
                     case "exit":
                         return;
