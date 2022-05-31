@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace WeaponApp
 {
-    internal class Maces : MeleeWeapon
+    internal class Bow : LongRangedWeapon
     {
-        public void Smash()
+        public string Hardness { get; set; }
+        public void PutArrow()
         {
-            Console.WriteLine("Smash!!!");
+            Console.WriteLine("Put an arrow in a bow");
         }
     }
 }

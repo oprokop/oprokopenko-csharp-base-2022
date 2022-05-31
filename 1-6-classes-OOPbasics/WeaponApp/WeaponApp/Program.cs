@@ -10,19 +10,19 @@ namespace WeaponApp
             {
                 Console.WriteLine("Choose your weapon: \n gun \n rifle \n bow");
                 Console.WriteLine("\n knife \n sword \n pike \n mace \n");
-                Guns gun1 = new Guns();
+                Gun gun1 = new Gun();
                 gun1.Name = "H&K Glock-17";
-                Rifles rifle1 = new Rifles();
+                Rifle rifle1 = new Rifle();
                 rifle1.Name = "H&K G36";
-                Bows bow1 = new Bows();
+                Bow bow1 = new Bow();
                 bow1.Name = "Bowie";
-                Knives knife1 = new Knives();
+                Knife knife1 = new Knife();
                 knife1.Name = "Knife";
-                Swords sword1 = new Swords();
+                Sword sword1 = new Sword();
                 sword1.Name = "Excalibur";
-                Pikes pike1 = new Pikes();
+                Pike pike1 = new Pike();
                 pike1.Name = "Pike";
-                Maces mace1 = new Maces();
+                Mace mace1 = new Mace();
                 mace1.Name = "Mace";
                 switch(Console.ReadLine())
                 {

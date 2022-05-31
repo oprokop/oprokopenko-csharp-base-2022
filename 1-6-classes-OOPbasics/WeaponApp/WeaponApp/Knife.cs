@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace WeaponApp
 {
-    internal class Pikes : MeleeWeapon, IStab, ISharpen
+    internal class Knife : MeleeWeapon, IStab, ISharpen
     {
+        public int BladeLength { get; set; }
         public void Stab()
         {
             Console.WriteLine("1 stab");

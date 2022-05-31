@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace WeaponApp
 {
-    internal class Rifles : LongRangedWeapon, IReload
+    internal class Gun : LongRangedWeapon, IReload
     {
-        public void Reload()
+        public string Type { get; set; } // firearm or air gun
+        public void Reload ()
         {
             Console.WriteLine("Reloaded");
         }

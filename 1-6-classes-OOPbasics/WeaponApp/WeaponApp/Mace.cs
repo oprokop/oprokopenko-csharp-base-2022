@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace WeaponApp
 {
-    internal class Guns : LongRangedWeapon, IReload
+    internal class Mace : MeleeWeapon
     {
-        public void Reload ()
+        public void Smash()
         {
-            Console.WriteLine("Reloaded");
+            Console.WriteLine("Smash!!!");
         }
     }
 }
