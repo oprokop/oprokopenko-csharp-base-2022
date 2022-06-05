@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeaponApp
 {
-    internal class MeleeWeapon : Weapon
+    public class MeleeWeapon : Weapon
     {
         public string GripType { get; set; } // one-handed or two-handed
     }

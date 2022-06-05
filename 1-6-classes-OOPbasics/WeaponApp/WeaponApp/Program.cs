@@ -17,6 +17,7 @@ namespace WeaponApp
                 Bow bow1 = new Bow();
                 bow1.Name = "Bowie";
                 Knife knife1 = new Knife();
+                
                 knife1.Name = "Knife";
                 Sword sword1 = new Sword();
                 sword1.Name = "Excalibur";

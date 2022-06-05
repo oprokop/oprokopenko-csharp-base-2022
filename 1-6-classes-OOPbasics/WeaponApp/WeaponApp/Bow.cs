@@ -9,9 +9,14 @@ namespace WeaponApp
     internal class Bow : LongRangedWeapon
     {
         public string Hardness { get; set; }
+
         public void PutArrow()
         {
             Console.WriteLine("Put an arrow in a bow");
+        }
+        public override void Shoot()
+        {
+            Console.WriteLine("1 arrow");
         }
     }
 }

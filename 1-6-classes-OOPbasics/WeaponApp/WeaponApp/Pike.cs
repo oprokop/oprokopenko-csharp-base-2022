@@ -8,6 +8,7 @@ namespace WeaponApp
 {
     internal class Pike : MeleeWeapon, IStab, ISharpen
     {
+        public readonly string Material = "wood";
         public int Length { get; set; }
         public void Stab()
         {

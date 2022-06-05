@@ -9,6 +9,10 @@ namespace WeaponApp
     internal class Gun : LongRangedWeapon, IReload
     {
         public string Type { get; set; } // firearm or air gun
+        public override void Shoot()
+        {
+            Console.WriteLine("1 shoot");
+        }
         public void Reload ()
         {
             Console.WriteLine("Reloaded");
