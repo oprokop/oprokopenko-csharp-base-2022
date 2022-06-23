@@ -8,6 +8,8 @@ namespace CollectionApp
     {
         static void Main(string[] args)
         {
+            var myArrayList = new MyArrayList<string> {"sjsj", "2", "third"};
+            var comparer = new MyArrayListComparer();
             while (true)
             {
                 Console.WriteLine("Choose action:");
@@ -23,42 +25,122 @@ namespace CollectionApp
                 Console.WriteLine("10. get index of element equal to input value");
                 Console.WriteLine("11. add multiple elements to the end of collection");
                 Console.WriteLine("12. indexers: get - returns element by index, set - inserts element by index");
+                int index;
                 switch (Console.ReadLine())
                 {
+                    case "0":
+                        foreach (var item in myArrayList)
+                        {
+                            Console.WriteLine(item);
+                        }
+                        break;
                     case "1":
+                        myArrayList.Add("test");
                         break;
                     case "2":
-                        ;
+                        Console.WriteLine("Enter index");
+                        if (int.TryParse(Console.ReadLine(), out index))
+                            Console.WriteLine("Your index is" + index);
+                        else
+                        {
+                            Console.WriteLine("Invalid data!");
+                            break;
+                        }
+                        Console.WriteLine("Enter value");
+                        myArrayList.InsertElementByIndex(index, Console.ReadLine());
                         break;
                     case "3":
-                        ;
+                        Console.WriteLine("Enter index");
+                        try
+                        {
+                            if (int.TryParse(Console.ReadLine(), out index))
+                                Console.WriteLine("Your index is" + index);
+                            else Console.WriteLine("Invalid data!");
+                            Console.WriteLine("Enter value");
+                            var value = Console.ReadLine();
+                            myArrayList.ReplaceElementByIndex(index, value);
+                        }
+                        catch (IndexOutOfRangeException)
+                        {
+                            Console.WriteLine("Wrong index, try again!");
+                        }
                         break;
                     case "4":
-                        ;
+                        myArrayList.RemoveSimilar("test");
                         break;
                     case "5":
-                        ;
+                        Console.WriteLine("Enter index");
+                        try
+                        {
+                            if (int.TryParse(Console.ReadLine(), out index))
+                            {
+                                Console.WriteLine("Your index is" + index);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid data!");
+                                break;
+                            }
+                            myArrayList.RemoveElementByIndex(index);
+                        }
+                        catch (IndexOutOfRangeException)
+                        {
+                            Console.WriteLine("Wrong index, try again!");
+                        }
                         break;
                     case "6":
-                        ;
+                        myArrayList.Reverse();
                         break;
                     case "7":
-                        ;
+                        myArrayList.Sort(comparer); 
                         break;
                     case "8":
-                        ;
+                        myArrayList.Clear();
                         break;
                     case "9":
-                        ;
+                        myArrayList.Contain("test");
                         break;
                     case "10":
-                        ;
+                        myArrayList.GetIndexOf("test");
                         break;
                     case "11":
-                        ;
+                        Console.WriteLine("Enter the number of massive elements...");
+                        if (int.TryParse(Console.ReadLine(), out int masLength));
+                        else
+                        {
+                            Console.WriteLine("Invalid data!");
+                            break;
+                        }
+                        string[] addingMassive = new string[masLength];
+                        for (int i = 0; i < masLength; i++)
+                        {
+                            addingMassive[i] = Console.ReadLine();
+                        }
+                        myArrayList.AddMany(addingMassive);
                         break;
                     case "12":
-                        ;
+                        try
+                        {
+                            if (int.TryParse(Console.ReadLine(), out index))
+                                Console.WriteLine("Your index is" + index);
+                            else Console.WriteLine("Invalid data!");
+                            Console.WriteLine("Enter value");
+                            var value = Console.ReadLine();
+                            myArrayList.Indexers(index, value);
+                        }
+                        catch (IndexOutOfRangeException)
+                        {
+                            Console.WriteLine("Wrong index, try again!");
+                        }
+                        break;
+                    case "13":
+                        myArrayList.Contain("test", comparer);
+                        break;
+                    case "14":
+                        myArrayList.RemoveSimilar("test", comparer);
+                        break;
+                    case "15":
+                        myArrayList.GetIndexOf("test", comparer);
                         break;
                     case "Exit":
                     case "exit":
@@ -70,126 +152,6 @@ namespace CollectionApp
                 }
                     
             }
-        }
-    }
-    public class MyArrayList<T> : IEnumerable<T>, IEquatable<T>
-    {
-        private T[] _array;
-        private int _lastAvailableIndex;
-        public MyArrayList(int size)
-        {
-            _array = new T[size];
-            _lastAvailableIndex = 0;
-        }
-        public void Add(T value)
-        {
-            _array[_lastAvailableIndex] = value;
-            _lastAvailableIndex++;
-        }
-        public void InsertElementByIndex(T[] _newArray, int myIndex, T value)
-        {
-            foreach (T element in _array)
-            {
-                if(element != null)
-                {
-                    _newArray = new T[_array.Length * 2];
-                }
-            }
-            _newArray[myIndex] = value;
-            for (int i = 0; i < myIndex; i++)
-            {
-                _newArray[i] = _array[i];
-            }
-            for(int i = myIndex; i < _array.Length; i++)
-            {
-                _newArray[i + 1] = _array[i];
-            }
-        }
-        public void ReplaceElementByIndex(int myIndex, T value)
-        {
-            _array[myIndex] = value;
-            Console.WriteLine($"Element number {0} is {1}", myIndex, value);
-        }
-        public void RemoveSimilar(T[] _newArray, T value)
-        {
-            _newArray = _array;
-            foreach(T element in _newArray)
-            {
-                if (element.Equals(value))
-                {
-                    //_newArray.Remove(element);
-                }
-            }
-            
-        }
-        public void RemoveElementByIndex(T[] _newArray, int myIndex)
-        {
-            _newArray = new T[_array.Length - 1];
-            for (int i = 0; i < myIndex; i++)
-            {
-                _newArray[i] = _array[i];
-            }
-            for (int i = myIndex + 1; i < _array.Length; i++)
-            {
-                _newArray[i - 1] = _array[i];
-            }
-        }
-        public void Reverse()
-        {
-            for(int i = _array.Length - 1; i >= 0; i--)
-            {
-                Console.WriteLine(_array[i]);
-            }
-        }
-        public void Clear(T[] _newArray)
-        {
-            _array = _newArray;
-            //foreach(T element in _array)
-            //{
-            //    element.Equals(null);
-            //}
-            //_array.ToList().Clear();
-        }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            return new MyArrayListEnumerator<T>(_array);
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
-        public bool Equals(T? other)
-        {
-            throw new NotImplementedException();
-        }
-    }
-    public class MyArrayListEnumerator<T> : IEnumerator<T>
-    {
-        private T[] _array;
-        private int _currentIndex;
-        public MyArrayListEnumerator(T[] array)
-        {
-            _array = array;
-            _currentIndex = -1;
-        }
-        public T Current => _array[_currentIndex];
-
-        object IEnumerator.Current => Current;
-
-        public void Dispose(){}
-
-        public bool MoveNext()
-        {
-            _currentIndex++;
-            return _currentIndex < _array.Length;
-        }
-
-        public void Reset()
-        {
-            _currentIndex = -1;
         }
     }
 }
