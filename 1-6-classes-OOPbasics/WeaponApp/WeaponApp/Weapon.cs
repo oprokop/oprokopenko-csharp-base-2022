@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace WeaponApp
 {
-    internal class Weapon
+    public abstract class Weapon
     {
         public string Name { get; set; }
         public int Weight { get; set; }
-        public void Repair()
+        public virtual void Repair()
         {
             Console.WriteLine("Repairing");
         }

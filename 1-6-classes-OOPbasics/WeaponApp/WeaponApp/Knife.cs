@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace WeaponApp
 {
-    internal class Knife : MeleeWeapon, IStab, ISharpen
+    public class Knife : MeleeWeapon, IStab, ISharpen
     {
+        public const string Material = "steel";
         public int BladeLength { get; set; }
         public void Stab()
         {
@@ -17,5 +18,9 @@ namespace WeaponApp
         {
             Console.WriteLine("To sharpen");
         }
+        //public Knife(Knife MeleeWeapon)
+        //{
+        //    GripType = MeleeWeapon.GripType;
+        //}
     }
 }

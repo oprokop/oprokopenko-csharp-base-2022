@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace WeaponApp
 {
-    internal class LongRangedWeapon : Weapon
+    internal abstract class LongRangedWeapon : Weapon
     {
         public int Range { get; set; }
-        public void Shoot()
-        {
-            Console.WriteLine("1 shoot");
-        }
+        public abstract void Shoot();
     }
 }
