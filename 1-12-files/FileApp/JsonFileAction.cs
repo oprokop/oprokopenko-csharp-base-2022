@@ -12,7 +12,7 @@ namespace FileApp
     {
         private static string FilePath = @"D:\For_HW1-12";
 
-        public static void Write(T instance, string fileName)
+        public static void Write<T>(T instance, string fileName)
         {
             string FullPath = $@"{FilePath}/{fileName}";
 
