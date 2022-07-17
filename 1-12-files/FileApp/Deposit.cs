@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FileApp
 {
-    internal class Deposit
+    public class Deposit
     {
         public string Name { get; set; }
 

@@ -56,7 +56,7 @@ namespace FileApp
 
                         Console.WriteLine("Enter the name of file in accordance to format CSV");
                         
-                        Regex regexToRead = new (@"[A-Z]?.csv");
+                        Regex regexToRead = new Regex(@"[A-Z]?.csv");
 
                         var fileNameToRead = Console.ReadLine();
 
