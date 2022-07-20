@@ -27,6 +27,8 @@ namespace FileApp
                 Console.WriteLine("10.to read single object from xml file");
                 Console.WriteLine("11.to write collection of objects into xml file");
                 Console.WriteLine("12.to read collection of objects from xml file");
+                Console.WriteLine("13.to read single object from xml file via generic method");
+                Console.WriteLine("14.to read collection of objects from xml file via generic method");
 
                 switch (Console.ReadLine())
                 {
@@ -36,6 +38,7 @@ namespace FileApp
                         {
                             Console.WriteLine(deposit);
                         }
+
                         break;
 
                     case "clear":
@@ -141,7 +144,7 @@ namespace FileApp
 
                         Console.WriteLine("Enter the name of file in accordance to format CSV");
 
-                        Regex regexToWriteMany = new(@"[A-Z]?s.csv");
+                        Regex regexToWriteMany = new(@"[A-Z]?.csv");
 
                         var fileNameToWriteCsv = Console.ReadLine();
 
@@ -160,7 +163,7 @@ namespace FileApp
 
                         Console.WriteLine("Enter the name of file in accordance to format CSV");
 
-                        Regex regexToReadMany = new Regex(@"[A-Z]?s.csv");
+                        Regex regexToReadMany = new Regex(@"[A-Z]?.csv");
 
                         var fileNameToReadCsv = Console.ReadLine();
 
@@ -224,7 +227,7 @@ namespace FileApp
 
                         Console.WriteLine("Enter the name of file in accordance to format json");
 
-                        Regex regexToWriteManyJson = new(@"[A-Z]?s.json");
+                        Regex regexToWriteManyJson = new(@"[A-Z]?.json");
 
                         var fileNameToWriteJson = Console.ReadLine();
 
@@ -243,7 +246,7 @@ namespace FileApp
 
                         Console.WriteLine("Enter the name of file in accordance to format json");
 
-                        Regex regexToReadManyJson = new Regex(@"[A-Z]?s.json");
+                        Regex regexToReadManyJson = new Regex(@"[A-Z]?.json");
 
                         var fileNameToReadJson = Console.ReadLine();
 
@@ -298,9 +301,9 @@ namespace FileApp
 
                     case "11":
 
-                        Console.WriteLine("Enter the name of file in accordance to format json");
+                        Console.WriteLine("Enter the name of file in accordance to format xml");
 
-                        Regex regexToWriteManyXml = new(@"[A-Z]?s.json");
+                        Regex regexToWriteManyXml = new(@"[A-Z]?.xml");
 
                         var fileNameToWriteXml = Console.ReadLine();
 
@@ -317,9 +320,9 @@ namespace FileApp
 
                     case "12":
 
-                        Console.WriteLine("Enter the name of file in accordance to format json");
+                        Console.WriteLine("Enter the name of file in accordance to format xml");
 
-                        Regex regexToReadManyXml = new Regex(@"[A-Z]?s.json");
+                        Regex regexToReadManyXml = new Regex(@"[A-Z]?.xml");
 
                         var fileNameToReadXml = Console.ReadLine();
 
@@ -332,6 +335,42 @@ namespace FileApp
                                 Console.WriteLine(item);
                             }
                         }
+                        break;
+
+                    case "13":
+
+                        Console.WriteLine("Enter the name of file in accordance to format xml");
+
+                        Regex regexToReadFromXmlGeneric = new Regex(@"[A-Z]?.xml");
+
+                        var fileNameToReadFromXmlGeneric = Console.ReadLine();
+
+                        if (regexToReadFromXmlGeneric.IsMatch(fileNameToReadFromXmlGeneric))
+                        {
+                            XmlGenericFileAction<Deposit>.Read(fileNameToReadFromXmlGeneric);
+                        }
+                        break;
+                    case "14":
+
+                        Console.WriteLine("Enter the name of file in accordance to format xml");
+
+                        Regex regexToReadManyXmlGeneric = new Regex(@"[A-Z]?.xml");
+
+                        var fileNameToReadXmlGeneric = Console.ReadLine();
+
+                        if (regexToReadManyXmlGeneric.IsMatch(fileNameToReadXmlGeneric))
+                        {
+                            var result = XmlFileAction.ReadMany(fileNameToReadXmlGeneric);
+
+                            foreach (var item in result)
+                            {
+                                Console.WriteLine(item);
+                            }
+                        }
+                        break;
+
+                    default:
+                        Console.WriteLine("Wrong choice, try again...");
                         break;
 
                     case "exit":
